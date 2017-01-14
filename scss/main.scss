@@ -1,0 +1,107 @@
+//(1)
+@import "./imports/normalize";
+@import "./imports/helpers";
+@import "./imports/mixins";
+@import "./imports/variables";
+
+
+
+@mixin center-in-block($size){
+   height: $size; 
+	width: $size; 
+	line-height: $size;
+   text-align: center;
+}
+
+@mixin media-query($screen-size){
+   @media screen and (min-width: $screen-size){
+      @content;
+   }
+}
+
+*{
+   box-sizing: border-box;
+}
+
+body {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.columns-container{
+	font-size: 0;
+	> * {
+		display: inline-block;
+		vertical-align: 0;
+	}
+}
+
+
+.header-font{
+  font-family: 'PT Mono', monospace;
+  color: #049372;
+}
+
+
+#app-container{
+
+  // locally scoped variable
+  $nav-icon-width: 70px;
+  padding-top: $nav-icon-width;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  nav {
+	  // (2) CSS TOGGLE NAV MENU
+  }
+
+
+  .logo-main{
+    padding-top: 20px;
+
+    img {
+      width: 75%;
+      margin: 0 auto;
+    }
+  }
+
+
+  .logo-strapline {
+     //(3) MOBILE STYLES FOR "Securing the Future" IMG
+  }
+
+
+  .profile-pics{
+      padding: 20px 0;
+
+      h4{
+        color: $theme-green;
+      }
+  }
+
+  .social{
+    
+	 // (3) 
+     
+  }
+
+  footer {
+	  //  (4) Use .columns-container + media-query mixin 
+	  //  for weird-numbered columns (5, 7, 10, 11)
+
+  }
+}
+
+/*
+	(1) imports: _helpers, _mixins, _variables, _normalize
+   (2) navbar styles
+   (3) Mobile styles for "Securing the Future img"
+   (4) .social icon styles
+   (5) .columns-container irregular # of  grid elements 
+        for <img> tags in .so-many ( 5/row: mobile | 10/row tablet )
+
+*/
